@@ -29,7 +29,7 @@
 }
 
 .content-heading {
-  margin-bottom: 16px;
+  margin: 16px;
 }
 #content-text {
   color: #fca311;
@@ -64,5 +64,5 @@
 
 .heading {
   font-size: 40px;
-  margin: 20px;
+  margin: 16px;
 }

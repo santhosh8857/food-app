@@ -7,6 +7,7 @@ import MenuCard from "../utilities/MenuCard";
 
 import "../../img/chicken-pepperoni.jpg";
 import FeatureCard from "../utilities/FeatureCard";
+import Footer from "../utilities/Footer";
 
 const Home = () => {
   return (
@@ -56,6 +57,7 @@ const Home = () => {
             description="Enjoy your food. This is the part where you get to eat your food while basking in the warm glow of time not spent cooking."
           />
         </div>
+        <Footer />
       </div>
     </>
   );
