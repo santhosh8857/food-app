@@ -9,6 +9,9 @@ const FoodSchema = new mongoose.Schema({
     type: String,
     required: true,
   },
+  img: {
+    type: String,
+  },
   rating: {
     type: Number,
   },
@@ -20,9 +23,6 @@ const FoodSchema = new mongoose.Schema({
   },
   isVeg: {
     type: Boolean,
-  },
-  img: {
-    type: String,
   },
 });
 
