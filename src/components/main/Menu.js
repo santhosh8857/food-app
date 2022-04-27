@@ -1,15 +1,20 @@
 import { useEffect, useState } from "react";
-// import axios from "axios";
+import axios from "axios";
 
 import Navbar from "../utilities/Navbar";
+import Card from "../utilities/Card";
 
 const Menu = () => {
-  const [foods, setFood] = useState([]);
+  const [foods, setFoods] = useState([]);
 
-  // useEffect(()=>{
-  //   axios.get('')
-  // },[])
+  useEffect(() => {
+    axios
+      .get("https://happy-bites.herokuapp.com/foods")
+      .then((resp) => setFoods(resp.data.data))
+      .catch((err) => console.log(err));
+  }, []);
 
+  console.log(foods);
   return (
     <>
       <div>
@@ -21,6 +26,11 @@ const Menu = () => {
             </h1>
           </div>
         </header>
+        <div style={{ margin: "20px 0 10px 0" }}>
+          {foods.map((food, key) => {
+            return <Card food={food} key={key} />;
+          })}
+        </div>
       </div>
     </>
   );
