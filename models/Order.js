@@ -4,6 +4,9 @@ const OrderSchema = new mongoose.Schema({
   item: {
     type: Array,
   },
+  amount: {
+    type: Number,
+  },
 });
 
 const order = mongoose.model("order", OrderSchema);
