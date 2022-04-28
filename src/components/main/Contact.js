@@ -51,7 +51,8 @@ const Contact = () => {
               </div>
 
               <button type="submit" className="btn-link">
-                Submit &nbsp;<i class="fa-solid fa-circle-chevron-right"></i>
+                Submit &nbsp;
+                <i className="fa-solid fa-circle-chevron-right"></i>
               </button>
             </form>
           </div>

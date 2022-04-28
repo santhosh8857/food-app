@@ -55,9 +55,9 @@ const About = () => {
         >
           What Our<span id="content-text"> Guests</span> Say
         </h1>
-        <section id="testimonials" class="py-3">
+        <section id="testimonials">
           <div className="container">
-            <div class="testimonials bg-primary">
+            <div className="testimonials bg-primary">
               <img src={person1} alt="linda" />
               <p>
                 Lorem ipsum dolor sit, amet consectetur adipisicing elit. Dolor
@@ -68,7 +68,7 @@ const About = () => {
               </p>
             </div>
 
-            <div class="testimonials bg-primary">
+            <div className="testimonials bg-primary">
               <img src={person2} alt="golmes" />
               <p>
                 Lorem ipsum dolor sit, amet consectetur adipisicing elit. Dolor

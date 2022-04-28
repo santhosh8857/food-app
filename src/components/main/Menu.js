@@ -46,11 +46,22 @@ const Menu = () => {
     }
   };
 
+  // get ordered food
+  // const getOrderedFood = () => {
+  //   const dummyArr = [];
+  //   for (const [key, value] of Object.entries(foodCount)) {
+  //     dummyArr.push([JSON.parse(key), value]);
+  //   }
+  //   setOrderedFood(dummyArr);
+  // };
+
+  // pushing the selected foods to the DB
   const checkout = () => {
     axios
       .post("https://happy-bites.herokuapp.com/foods/add-order", {
         item: orderedFood,
         amount: amount,
+        count: count,
       })
       .then((resp) => console.log(resp))
       .catch((err) => console.log(err));
@@ -65,9 +76,14 @@ const Menu = () => {
       .catch((err) => console.log(err));
   }, []);
 
+  // to get the food selected by the user
   useEffect(() => {
-    setOrderedFood(Object.entries(foodCount));
-  }, [count, foodCount]);
+    const dummyArr = [];
+    for (const [key, value] of Object.entries(foodCount)) {
+      dummyArr.push([JSON.parse(key), value]);
+    }
+    setOrderedFood(dummyArr);
+  }, [count]);
 
   return (
     <>
@@ -122,21 +138,24 @@ const Menu = () => {
               ) : (
                 <>
                   <p className="cart-title">Cart</p>
-                  <p>{count} ITEM</p>
-                  {item.map((food, key) => {
-                    foodCount[food.name] = (foodCount[food.name] || 0) + 1;
+                  <p>
+                    {count} {count > 1 ? "ITEMS" : "ITEM"}
+                  </p>
+                  {item.forEach((food) => {
+                    const key = JSON.stringify(food);
+                    foodCount[key] = (foodCount[key] || 0) + 1;
                   })}
                   {orderedFood.map((food, key) => {
                     return (
                       <p className="cart-item" key={key}>
-                        {food[0]} ({food[1]})
+                        {food[0].name} ({food[1]})
                       </p>
                     );
                   })}
                   <p>Subtotal : &#8377; {amount}</p>
                   <button className="btn btn-add" onClick={checkout}>
                     CHECKOUT &nbsp;
-                    <i class="fa-solid fa-circle-chevron-right"></i>
+                    <i className="fa-solid fa-circle-chevron-right"></i>
                   </button>
                 </>
               )}

@@ -12,7 +12,7 @@ const Navbar = (props) => {
     >
       <h1 className="logo">
         <span className="text-white">
-          <i class="fa-solid fa-burger logo-color"></i> &nbsp;Happy Bites
+          <i className="fa-solid fa-burger logo-color"></i> &nbsp;Happy Bites
         </span>
       </h1>
 

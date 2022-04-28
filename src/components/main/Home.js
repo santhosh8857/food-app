@@ -22,7 +22,8 @@ const Home = () => {
               <br /> our yummy food in your tummy
             </h1>
             <Link to="/menu" className="btn-link">
-              Order Now &nbsp;<i class="fa-solid fa-circle-chevron-right"></i>
+              Order Now &nbsp;
+              <i className="fa-solid fa-circle-chevron-right"></i>
             </Link>
           </div>
         </header>
