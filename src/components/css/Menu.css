@@ -4,7 +4,7 @@
 
 .food-card-container {
   margin: 5px 0 10px 0;
-  width: 110%;
+  width: 75%;
 }
 
 .cart-card {
@@ -13,7 +13,8 @@
   position: sticky;
   /* left: 75%; */
   top: 0;
-  width: 80%;
+  width: 100%;
+  padding: 10px;
 }
 
 .cart-title {
@@ -30,4 +31,8 @@
 
 .cart-text {
   opacity: 0.8;
+}
+
+.cart-item {
+  font-size: 20px;
 }

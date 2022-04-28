@@ -8,6 +8,7 @@ import App from "./App";
 import Menu from "./components/main/Menu";
 import About from "./components/main/About";
 import Contact from "./components/main/Contact";
+import Order from "./components/main/Order";
 
 const routing = (
   <Router>
@@ -16,6 +17,7 @@ const routing = (
       <Route exact path="/menu" element={<Menu />} />
       <Route exact path="/about" element={<About />} />
       <Route exact path="/contact" element={<Contact />} />
+      <Route exact path="/order" element={<Order />} />
     </Routes>
   </Router>
 );

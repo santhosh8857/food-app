@@ -1,18 +1,26 @@
 import { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
 import axios from "axios";
 
 import Navbar from "../utilities/Navbar";
 import Card from "../utilities/Card";
+import cart from "../../img/cart.png";
 
 import "../css/Menu.css";
 
-import cart from "../../img/cart.png";
 const Menu = () => {
   const [foods, setFoods] = useState([]);
 
   const [count, setCount] = useState(0);
   const [item, setItem] = useState([]);
   const [amount, setAmount] = useState(0);
+
+  const [orderedFood, setOrderedFood] = useState([]);
+
+  const navigate = useNavigate();
+
+  // const [foodCount, setFoodCount] = useState({});
+  let foodCount = {};
 
   // add food to the selected item
   const addFood = (food) => {
@@ -31,12 +39,23 @@ const Menu = () => {
 
         const dishItem = [...prevState].filter((item) => item._id === food._id);
         dishItem.pop();
-
         return newItem.concat(...dishItem);
       });
     } else {
       return;
     }
+  };
+
+  const checkout = () => {
+    axios
+      .post("https://happy-bites.herokuapp.com/foods/add-order", {
+        item: orderedFood,
+        amount: amount,
+      })
+      .then((resp) => console.log(resp))
+      .catch((err) => console.log(err));
+
+    navigate("/order");
   };
 
   useEffect(() => {
@@ -45,6 +64,10 @@ const Menu = () => {
       .then((resp) => setFoods(resp.data.data))
       .catch((err) => console.log(err));
   }, []);
+
+  useEffect(() => {
+    setOrderedFood(Object.entries(foodCount));
+  }, [count, foodCount]);
 
   return (
     <>
@@ -71,7 +94,14 @@ const Menu = () => {
             })}
           </div>
           <div>
-            <div className="cart-card">
+            <div
+              className="cart-card"
+              style={
+                item.length !== 0
+                  ? { border: "2px solid #f7c08a", borderRadius: "5px" }
+                  : null
+              }
+            >
               {item.length === 0 ? (
                 <>
                   <p className="cart-title">Cart Empty</p>
@@ -90,7 +120,25 @@ const Menu = () => {
                   </p>
                 </>
               ) : (
-                <></>
+                <>
+                  <p className="cart-title">Cart</p>
+                  <p>{count} ITEM</p>
+                  {item.map((food, key) => {
+                    foodCount[food.name] = (foodCount[food.name] || 0) + 1;
+                  })}
+                  {orderedFood.map((food, key) => {
+                    return (
+                      <p className="cart-item" key={key}>
+                        {food[0]} ({food[1]})
+                      </p>
+                    );
+                  })}
+                  <p>Subtotal : &#8377; {amount}</p>
+                  <button className="btn btn-add" onClick={checkout}>
+                    CHECKOUT &nbsp;
+                    <i class="fa-solid fa-circle-chevron-right"></i>
+                  </button>
+                </>
               )}
             </div>
           </div>
