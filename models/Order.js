@@ -7,6 +7,9 @@ const OrderSchema = new mongoose.Schema({
   amount: {
     type: Number,
   },
+  count: {
+    type: Number,
+  },
 });
 
 const order = mongoose.model("order", OrderSchema);
