@@ -1,10 +1,11 @@
 import Navbar from "../utilities/Navbar";
+import Footer from "../utilities/Footer";
+import FeatureCard from "../utilities/FeatureCard";
 
-import "../css/About.css";
 import person1 from "../../img/person-1.jpg";
 import person2 from "../../img/person-2.jpg";
-import FeatureCard from "../utilities/FeatureCard";
-import Footer from "../utilities/Footer";
+import "../css/About.css";
+
 const About = () => {
   return (
     <>
@@ -23,6 +24,8 @@ const About = () => {
         >
           <span id="content-text"> Benefits</span> From Us
         </h1>
+
+        {/* features - CARD */}
         <div className="list">
           <FeatureCard
             title="Delivery Time"
@@ -55,27 +58,27 @@ const About = () => {
         >
           What Our<span id="content-text"> Guests</span> Say
         </h1>
+
+        {/* Guests section */}
         <section id="testimonials">
           <div className="container">
             <div className="testimonials bg-primary">
               <img src={person1} alt="linda" />
               <p>
-                Lorem ipsum dolor sit, amet consectetur adipisicing elit. Dolor
-                eos pariatur, odio dolores dolorum facilis, ipsum earum in, quod
-                consequuntur culpa voluptatum beatae nam veritatis, quia ea
-                magni officiis iure id laboriosam? iusto veniam veritatis!
-                Nostrum pariatur laborum amet soluta
+                "Food was fresh, the Chicken Pepperoni is amazing and homemade,
+                even the toast was good! Oh, and the Hot Wings! Everything we
+                ordered was fresh and delicious. Highly recommend! Definitely
+                coming back.”
               </p>
             </div>
 
             <div className="testimonials bg-primary">
               <img src={person2} alt="golmes" />
               <p>
-                Lorem ipsum dolor sit, amet consectetur adipisicing elit. Dolor
-                eos pariatur, odio dolores dolorum facilis, ipsum earum in, quod
-                iusto veniam veritatis! Nostrum pariatur laborum amet soluta
-                consequuntur culpa voluptatum beatae nam veritatis, quia ea
-                magni officiis iure id laboriosam?
+                “Normally wings are wings, but theirs are lean meaty and tender,
+                and delicious homemade teriaki glaze. Gluten free pizza way
+                better than most. Came here after finding the best gluten free
+                muffins anywhere"
               </p>
             </div>
           </div>

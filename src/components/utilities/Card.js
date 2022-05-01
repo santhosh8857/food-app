@@ -1,6 +1,8 @@
 import "../css/foodcard.css";
+import "../css/mobile/mobile.css";
 
 const Card = ({ food, addFood, removeFood }) => {
+  // calling a parent function through props and passing selected food
   const addItem = () => {
     addFood(food);
   };

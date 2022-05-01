@@ -1,12 +1,43 @@
+import { useState } from "react";
+import axios from "axios";
+
 import Navbar from "../utilities/Navbar";
 import FeatureCard from "../utilities/FeatureCard";
 import Footer from "../utilities/Footer";
 
 import "../css/Contact.css";
 import "../css/Home.css";
+import "../css/mobile/mobile.css";
 import contact from "../../img/cook.png";
-
+//
 const Contact = () => {
+  const [contactDetails, setContactDetails] = useState({
+    name: "",
+    email: "",
+    message: "",
+  });
+
+  const { name, email, message } = contactDetails;
+
+  const handleChange = (e) => {
+    setContactDetails({ ...contactDetails, [e.target.name]: e.target.value });
+    e.preventDefault();
+  };
+
+  const handleSubmit = (e) => {
+    axios
+      .post("https://happy-bites.herokuapp.com/users/add-message", {
+        name: name,
+        email: email,
+        message: message,
+      })
+      .then((resp) => console.log(resp))
+      .catch((err) => console.log(err));
+
+    setContactDetails({ name: "", email: "", message: "" });
+
+    e.preventDefault();
+  };
   return (
     <>
       <div>
@@ -20,9 +51,9 @@ const Contact = () => {
           </div>
         </header>
         <section className="contact-section">
-          <img src={contact} alt="..." style={{ width: "30%" }}></img>
+          <img src={contact} alt="..."></img>
           <div id="contact-form">
-            <form>
+            <form onSubmit={handleSubmit}>
               <div className="form-group">
                 <label for="name">Name</label>
                 <input
@@ -30,6 +61,9 @@ const Contact = () => {
                   name="name"
                   id="name"
                   placeholder="Enter your name"
+                  value={name}
+                  onChange={handleChange}
+                  required
                 />
               </div>
               <div className="form-group">
@@ -38,15 +72,21 @@ const Contact = () => {
                   type="email"
                   name="email"
                   id="email"
+                  value={email}
                   placeholder="Enter your email"
+                  onChange={handleChange}
+                  required
                 />
               </div>
               <div className="form-group">
                 <label for="mesaage">Message</label>
                 <textarea
-                  name="mesaage"
+                  name="message"
                   id="mesaage"
                   placeholder="Feedback?"
+                  value={message}
+                  onChange={handleChange}
+                  required
                 ></textarea>
               </div>
 

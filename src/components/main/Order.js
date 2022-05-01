@@ -3,17 +3,84 @@ import { useNavigate } from "react-router-dom";
 import axios from "axios";
 
 import Navbar from "../utilities/Navbar";
-// import order from "../../img/order.png";
+import order from "../../img/order.png";
 
 import "../css/Order.css";
+import Footer from "../utilities/Footer";
+
+import "../css/mobile/mobile.css";
+
+const loadScript = (src) => {
+  return new Promise((resolve) => {
+    const script = document.createElement("script");
+    script.src = src;
+
+    script.onload = () => {
+      resolve(true);
+    };
+
+    script.onerror = () => {
+      resolve(false);
+    };
+    document.body.appendChild(script);
+  });
+};
+
+// main component
 const Order = () => {
+  const navigate = useNavigate();
+
   const [orders, setOrders] = useState([]);
   const [amount, setAmount] = useState(0);
   const [count, setCount] = useState(0);
 
-  const navigate = useNavigate();
-
   let tax = (amount * 5) / 100;
+  let totalAmount = amount + tax;
+
+  const toggleRazorpay = async (totalPayment) => {
+    const res = await loadScript(
+      "https://checkout.razorpay.com/v1/checkout.js"
+    );
+
+    if (!res) {
+      alert(
+        "Razorpay SDK failed to load. Please check your network connection!"
+      );
+      return;
+    }
+
+    axios
+      .post("https://happy-bites.herokuapp.com/foods/create-orderId", {
+        amount: totalPayment * 100, // 100 paise = 1 rupee
+      })
+      .then((resp) => {
+        console.log(resp);
+        const options = {
+          key: process.env.REACT_APP_RAZORPAY_KEY,
+          amount: parseInt(resp.data.data.amount * 100),
+          currency: resp.data.data.currency,
+          name: "Happy Bites",
+          description: "Thanks for ordering food, you are almost there!",
+          image: order,
+          order_id: resp.data.data.id, //This is a sample Order ID. Pass the `id` obtained in the response of Step 1
+          handler: function (response) {
+            // alert(response.razorpay_payment_id);
+            // alert(response.razorpay_order_id);
+            // alert(response.razorpay_signature);
+
+            alert("Payment Successfull!");
+            navigate("/");
+          },
+          prefill: {
+            name: "Santhosh",
+            email: "santhosh8857@example.com",
+            contact: "987867124",
+          },
+        };
+        var payment = new window.Razorpay(options);
+        payment.open();
+      });
+  };
 
   useEffect(() => {
     axios
@@ -39,7 +106,7 @@ const Order = () => {
           </div>
         </header>
         <div className="main-order-container">
-          <div className="order-container">
+          <div className="order-container" id="mobile-order-container">
             <h2 className="order">
               {/* <span>
                 <img src={order} alt="order" style={{ width: "8%" }} />
@@ -90,7 +157,7 @@ const Order = () => {
               <hr />
               <div className="bill-payment">
                 <p>To Pay</p>
-                <p>&#8377; {amount + tax}</p>
+                <p>&#8377; {totalAmount}</p>
               </div>
             </div>
             <div>
@@ -105,7 +172,7 @@ const Order = () => {
               <button
                 className="btn btn-add"
                 onClick={() => {
-                  navigate("/");
+                  toggleRazorpay(totalAmount);
                 }}
                 style={{ marginLeft: "10px" }}
               >
@@ -113,9 +180,9 @@ const Order = () => {
               </button>
             </div>
           </div>
-          <div></div>
         </div>
       </div>
+      <Footer />
     </>
   );
 };

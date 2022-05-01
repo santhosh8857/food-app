@@ -35,6 +35,15 @@
   margin-bottom: 15px;
 }
 
+.contact-section img {
+  width: 30%;
+}
+
+.message {
+  height: 10vh;
+  text-align: left;
+}
+
 /* .image-section {
   background-repeat: no-repeat;
   background-position: center;

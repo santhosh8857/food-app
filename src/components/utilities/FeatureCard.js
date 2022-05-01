@@ -4,8 +4,8 @@ const FeatureCard = (props) => {
   return (
     <>
       <div
-        className="feature-card"
-        style={props.contact ? { width: "33.33%", textAlign: "center" } : null}
+        className="feature-card mobile-card contact-display-card"
+        style={props.contact ? { textAlign: "center" } : null}
       >
         <h2>
           <i className={props.icon} id="content-text"></i> &nbsp; {props.title}
