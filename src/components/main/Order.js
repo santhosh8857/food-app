@@ -50,7 +50,7 @@ const Order = () => {
     }
 
     axios
-      .post("https://happy-bites.herokuapp.com/foods/create-orderId", {
+      .post("https://happy-bites.onrender.com/foods/create-orderId", {
         amount: totalPayment * 100, // 100 paise = 1 rupee
       })
       .then((resp) => {
@@ -84,7 +84,7 @@ const Order = () => {
 
   useEffect(() => {
     axios
-      .get("https://happy-bites.herokuapp.com/foods/get-orders")
+      .get("https://happy-bites.onrender.com/foods/get-orders")
       .then((resp) => {
         setOrders(resp.data.data[0].item);
         setAmount(resp.data.data[0].amount);

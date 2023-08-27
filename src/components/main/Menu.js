@@ -55,7 +55,7 @@ const Menu = () => {
   // pushing the selected foods to the DB
   const checkout = () => {
     axios
-      .post("https://happy-bites.herokuapp.com/foods/add-order", {
+      .post("https://happy-bites.onrender.com/foods/add-order", {
         item: orderedFood,
         amount: amount,
         count: count,
@@ -68,7 +68,7 @@ const Menu = () => {
 
   useEffect(() => {
     axios
-      .get("https://happy-bites.herokuapp.com/foods")
+      .get("https://happy-bites.onrender.com/foods")
       .then((resp) => setFoods(resp.data.data))
       .catch((err) => console.log(err));
   }, []);

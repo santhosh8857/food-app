@@ -26,7 +26,7 @@ const Contact = () => {
 
   const handleSubmit = (e) => {
     axios
-      .post("https://happy-bites.herokuapp.com/users/add-message", {
+      .post("https://happy-bites.onrender.com/users/add-message", {
         name: name,
         email: email,
         message: message,

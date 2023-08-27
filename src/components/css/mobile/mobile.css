@@ -53,11 +53,11 @@
 
   /* toggle height */
   #navbar {
-    height: 13vh;
+    height: 16vh;
   }
 
   #mobile-navbar {
-    height: 5vh;
+    height: 6vh;
   }
 
   .menu-nav ul li {
