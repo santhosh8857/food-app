@@ -9,7 +9,7 @@ const Footer = () => {
           className="text-center"
           style={{ fontSize: "0.9rem" }}
         >
-          HAPPY BITES &copy; 2022 All Rights Reversed
+          HAPPY BITES &copy; 2024 All Rights Reversed
         </p>
       </footer>
     </div>

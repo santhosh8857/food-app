@@ -112,7 +112,7 @@ const Contact = () => {
           />
           <FeatureCard
             title="Email Address"
-            description="santhosh8857@gmail.com"
+            description="thulasi@gmail.com"
             icon="fa-solid fa-paper-plane"
             contact={true}
           />
