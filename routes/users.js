@@ -22,7 +22,7 @@ router.post("/add-user", async(req,res) => {
 
       // adding the user to the DB with hashed password
       const data = await user.create(req.body);
-
+      console.log(req.body);
       res.send({
         message: "details added successfully!",
         status: true,
@@ -55,6 +55,48 @@ router.post ("/login", async(req, res) => {
     console.log(err);
     res.send({ message: "Error in conenction", status: false, error: err });
   }
+})
+
+router.post ("/reset-password", async (req,res) => {
+  try {
+    // getting the user old password
+
+    const userOldPassword = req.body.oldPassword;
+    // finding the user data with userName
+    const userData = await
+    user.findOne({ userName: req.body.userName }); 
+
+    const userName = userData.userName;
+
+    // verifying the user is available
+
+    if(userData) {
+        // comparing the POST method password and hashed one in DB
+        const compare = await hashCompare(userOldPassword, userData.password);
+
+        if(compare) {
+          // hashing the newPassword
+          const hashedPassword = await hashing(req.body.newPassword);
+          const data = await user.updateOne({ userName }, { $set: { password: hashedPassword } });
+
+          res.send({
+            message: "Password Updated!", status: true
+          })
+        } else {
+          res.send ({message: "Invalid Existing Password!", 
+            status:false})
+        }
+    } else {
+      res.send({ message: "Enter the Valid userName" });
+    }
+  } catch (err) {
+    console.log(err);
+    res.send({
+        message: "error in connection",
+        status: false,
+        error : err
+      })  
+    }
 })
 
 router.post("/add-message", async (req, res) => {
