@@ -1,0 +1,47 @@
+.showcase-main-login {
+  /* background-image: url("../../img/showcase.avif"); */
+  background-color: #000;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  height: 100vh;
+  width: 100%;
+  position: relative;
+}
+
+.showcase-main .content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 0 20px;
+  height: 100%;
+  color: #fff;
+  opacity: 0.8;
+}
+
+
+.text-left {
+    text-align: left;
+  }
+  
+  .img-height {
+    height: "1vh";
+  }
+  
+  .forget-password {
+    text-align: right;
+    font-size: 15px;
+    text-decoration: none;
+    color: #333;
+  }
+  
+  .forget-password:hover {
+    color: #000;
+  }
+  
+  .icon {
+    color: #fff;
+  }
+  

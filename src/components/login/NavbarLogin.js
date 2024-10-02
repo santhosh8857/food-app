@@ -38,16 +38,6 @@ const Navbar = (props) => {
           <nav className={isActive ? "mobile-nav" : "display-nav"}>
             <ul>
               <li>
-                <Link className="route-link" to="/dashboard">
-                  Home
-                </Link>
-              </li>
-              <li>
-                <Link className="route-link" to="/menu">
-                  Menu
-                </Link>
-              </li>
-              <li>
                 <Link className="route-link" to="/about">
                   About
                 </Link>
