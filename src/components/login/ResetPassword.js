@@ -42,7 +42,6 @@ const ResetPassword = () => {
       await toast(details.data.message, { type: "success", onClose :()=> {
         navigate("/");
       }});
-      
     } else {
       toast(details.data.message, { type: "error" });
     }
