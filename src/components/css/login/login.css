@@ -23,6 +23,10 @@
     margin-top: 0;
     font-size: 55px;
   }
+
+  .text {
+    text-align: right;
+  }
   
   h1 span {
     color: #fca311;

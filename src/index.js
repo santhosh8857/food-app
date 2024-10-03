@@ -12,6 +12,8 @@ import Menu from "./components/main/Menu";
 import About from "./components/main/About";
 import Contact from "./components/main/Contact";
 import Order from "./components/main/Order";
+import RegisterPage from "./components/login/RegisterPage";
+import ResetPassword from "./components/login/ResetPassword";
 
 const routing = (
   <Router>
@@ -22,6 +24,8 @@ const routing = (
       <Route exact path="/about" element={<About />} />
       <Route exact path="/contact" element={<Contact />} />
       <Route exact path="/order" element={<Order />} />
+      <Route exact path="/register" element={<RegisterPage />} />
+      <Route exact path="/forgetpassword" element={<ResetPassword />} />
     </Routes>
   </Router>
 );
