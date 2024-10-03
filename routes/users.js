@@ -64,13 +64,11 @@ router.post ("/reset-password", async (req,res) => {
     const userOldPassword = req.body.oldPassword;
     // finding the user data with userName
     const userData = await
-    user.findOne({ userName: req.body.userName }); 
-
-    const userName = userData.userName;
-
+    user.findOne({ userName: req.body.userName });
+  
     // verifying the user is available
-
-    if(userData) {
+    if(userData) {  
+      const userName = userData.userName;
         // comparing the POST method password and hashed one in DB
         const compare = await hashCompare(userOldPassword, userData.password);
 
@@ -87,7 +85,7 @@ router.post ("/reset-password", async (req,res) => {
             status:false})
         }
     } else {
-      res.send({ message: "Enter the Valid userName" });
+      res.send({ message: "Enter the Valid userName!", status:false});
     }
   } catch (err) {
     console.log(err);
