@@ -1,6 +1,6 @@
 /* Form container */
 
-.box {
+.box-login {
     width: 25%;
     /* background-color: #14213d; */
     background-color: #222;
@@ -12,11 +12,11 @@
     text-align: left;
   }
   
-  .form-item {
+  .form-item-login {
     margin: 15px 0;
   }
   
-  .form-item input {
+  .form-item-login input {
     /* background-color: #ccc; */
     /* border-bottom: 2px solid #222; */
     font-size: 0.9rem;
@@ -26,33 +26,33 @@
     border-radius: 5px;
   }
   
-  .form-item input:focus {
+  .form-item-login input:focus {
     outline: none;
     border-color: #fca311;
   }
   
-  .block {
+  .block-login {
     display: block;
     margin: 9px 0;
     font-size: 1.2rem;
   }
   
-  .check-box {
+  .check-box-login {
     width: 90%;
     display: flex;
     align-items: center;
     justify-content: center;
   }
   
-  .check-box span {
+  .check-box-login span {
     margin: 0 10px;
   }
   
-  .check-box input {
+  .check-box-login input {
     margin: 0 10px;
   }
   
-  .btn {
+  .btn-login {
     width: 100%;
     font-size: 1rem;
     color: #000;

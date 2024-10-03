@@ -70,9 +70,9 @@ const RegisterPage = () => {
                 Log in
               </a>
             </p>
-            <form className="box" style={{width:"40%"}} onSubmit={handleSubmit}>
-              <div className="form-item">
-                <label className="block">Username</label>
+            <form className="box-login" style={{width:"40%"}} onSubmit={handleSubmit}>
+              <div className="form-item-login">
+                <label className="block-login">Username</label>
                 <input
                   type="email"
                   name="email"
@@ -82,8 +82,8 @@ const RegisterPage = () => {
                   required
                 />
               </div>
-              <div className="form-item">
-                <label className="block">First Name</label>
+              <div className="form-item-login">
+                <label className="block-login">First Name</label>
                 <input
                   type="text"
                   name="text"
@@ -93,8 +93,8 @@ const RegisterPage = () => {
                   required
                 />
               </div>
-              <div className="form-item">
-                <label className="block">Last Name</label>
+              <div className="form-item-login">
+                <label className="block-login">Last Name</label>
                 <input
                   type="text"
                   name="text"
@@ -104,8 +104,8 @@ const RegisterPage = () => {
                   required
                 />
               </div>
-              <div className="form-item">
-                <label className="block">Password</label>
+              <div className="form-item-login">
+                <label className="block-login">Password</label>
                 <input
                   type="password"
                   name="password"
@@ -115,8 +115,8 @@ const RegisterPage = () => {
                   required
                 />
               </div>
-              <div className="form-item">
-                <label className="block">Retype Password</label>
+              <div className="form-item-login">
+                <label className="block-login">Retype Password</label>
                 <input
                   type="password"
                   name="checkpassword"
@@ -126,15 +126,15 @@ const RegisterPage = () => {
                   required
                 />
               </div>
-              <div className="form-item login-button">
+              <div className="form-item-login login-button">
                 <button
-                      className="btn-link btn"
+                      className="btn-link-login btn-login"
                       type="submit"
                       style={{
                         background: "#fca311",
                         border: "1px black solid",
                       }}
-                    >Register <i class="fas fa-chevron-right"></i></button>
+                    >Register <i className="fas fa-chevron-right"></i></button>
               </div>
             </form>
           </div>

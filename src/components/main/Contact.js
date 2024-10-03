@@ -90,7 +90,7 @@ const Contact = () => {
                 ></textarea>
               </div>
 
-              <button type="submit" className="btn-link">
+              <button type="submit" className="button-link">
                 Submit &nbsp;
                 <i className="fa-solid fa-circle-chevron-right"></i>
               </button>
@@ -112,7 +112,7 @@ const Contact = () => {
           />
           <FeatureCard
             title="Email Address"
-            description="thulasi@gmail.com"
+            description="manikandan@gmail.com"
             icon="fa-solid fa-paper-plane"
             contact={true}
           />

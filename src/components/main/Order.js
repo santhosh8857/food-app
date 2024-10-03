@@ -10,6 +10,9 @@ import Footer from "../utilities/Footer";
 
 import "../css/mobile/mobile.css";
 
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+
 const loadScript = (src) => {
   return new Promise((resolve) => {
     const script = document.createElement("script");
@@ -67,13 +70,13 @@ const Order = () => {
             // alert(response.razorpay_payment_id);
             // alert(response.razorpay_order_id);
             // alert(response.razorpay_signature);
-
-            alert("Payment Successfull!");
-            navigate("/");
+            toast("Payment Successful!", { type: "success", onClose :()=> {
+              navigate("/dashboard");
+            }});
           },
           prefill: {
-            name: "Santhosh",
-            email: "santhosh8857@example.com",
+            name: "Manikandan",
+            email: "Manikandan@example.com",
             contact: "987867124",
           },
         };
@@ -95,6 +98,7 @@ const Order = () => {
 
   return (
     <>
+    <ToastContainer />
       <div>
         <header className="showcase-main">
           <Navbar />

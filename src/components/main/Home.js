@@ -21,7 +21,7 @@ const Home = () => {
             <span id="content-text">Order & Enjoy </span>
             <br /> our yummy food in your tummy
           </h1>
-          <Link to="/menu" className="btn-link">
+          <Link to="/menu" className="button-link">
             Order Now &nbsp;
             <i className="fa-solid fa-circle-chevron-right"></i>
           </Link>

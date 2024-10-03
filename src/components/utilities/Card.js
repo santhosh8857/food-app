@@ -14,7 +14,7 @@ const Card = ({ food, addFood, removeFood }) => {
     <>
       <div className="food-container">
         <img src={food.img} alt={food.name} />
-        <div className="food-card  bg-primary">
+        <div className="food-card" id="bg-primary">
           <i
             className="fa-solid fa-circle-stop"
             style={food.isVeg ? { color: "green" } : { color: "red" }}

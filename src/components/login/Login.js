@@ -50,9 +50,9 @@ const Login = () => {
       <header className="showcase-main-login">
         <NavbarLogin />
           <div className="content-login">
-            <form className="box" onSubmit={handleSubmit}>
-              <div className="form-item">
-                <label className="block">Username</label>
+            <form className="box-login" onSubmit={handleSubmit}>
+              <div className="form-item-login">
+                <label className="block-login">Username</label>
                 <input
                   type="email"
                   name="email"
@@ -62,7 +62,7 @@ const Login = () => {
                   required
                 />
               </div>
-              <div className="form-item">
+              <div className="form-item-login">
                 <label className="block">Password</label>
                 <input
                   type="password"
@@ -73,13 +73,13 @@ const Login = () => {
                   required
                 />
               </div>
-              <div className="text"> <a href="/forgetpassword" style={{ textDecoration: "none", color: "white" }}>Forget Password? </a></div>
-              <div className="form-item login-button">
-                <button className="btn-link btn" type="submit">
-                  Login &nbsp;<i class="fas fa-chevron-right"></i>
+              <div className="text-login"> <a href="/forgetpassword" style={{ textDecoration: "none", color: "white" }}>Forget Password? </a></div>
+              <div className="form-item-login login-button">
+                <button className="btn-link-login btn-login" type="submit">
+                  Login &nbsp;<i className="fas fa-chevron-right"></i>
                 </button>
                 <button
-                      className="btn-link btn"
+                      className="btn-link-login btn-login"
                       style={{
                         background: "#f5e6c8",
                         border: "1px black solid",

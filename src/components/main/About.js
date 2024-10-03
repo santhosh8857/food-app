@@ -62,7 +62,7 @@ const About = () => {
         {/* Guests section */}
         <section id="testimonials">
           <div className="container">
-            <div className="testimonials bg-primary">
+            <div className="testimonials" id="bg-primary">
               <img src={person1} alt="linda" />
               <p>
                 "Food was fresh, the Chicken Pepperoni is amazing and homemade,
@@ -72,7 +72,7 @@ const About = () => {
               </p>
             </div>
 
-            <div className="testimonials bg-primary">
+            <div className="testimonials" id="bg-primary">
               <img src={person2} alt="golmes" />
               <p>
                 “Normally wings are wings, but theirs are lean meaty and tender,
