@@ -55,12 +55,12 @@ const ResetPassword = () => {
           <div className="content-login">
             <form className="box" onSubmit={handleSubmit}>
               <div className="form-item">
-                <label className="block">Username</label>
+                <label className="block">Email ID</label>
                 <input
                   type="email"
                   name="email"
                   id="email"
-                  placeholder="Enter your username"
+                  placeholder="Enter your Email ID"
                   onChange={(e) => setUsername(e.target.value)}
                   required
                 />
@@ -70,7 +70,7 @@ const ResetPassword = () => {
                 <input
                   type="password"
                   name="Old Password"
-                  placeholder="enter your old password"
+                  placeholder="Enter your old password"
                   onChange={(e) => setOldpassword(e.target.value)}
                   required
                 />
@@ -80,7 +80,7 @@ const ResetPassword = () => {
                 <input
                   type="password"
                   name="New Password"
-                  placeholder="enter your new password"
+                  placeholder="Enter your new password"
                   onChange={(e) => setNewpassword(e.target.value)}
                   required
                 />

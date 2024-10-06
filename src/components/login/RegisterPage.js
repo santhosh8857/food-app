@@ -72,12 +72,12 @@ const RegisterPage = () => {
             </p>
             <form className="box-login" style={{width:"40%"}} onSubmit={handleSubmit}>
               <div className="form-item-login">
-                <label className="block-login">Username</label>
+                <label className="block-login">Email ID</label>
                 <input
                   type="email"
                   name="email"
                   id="email"
-                  placeholder="Enter your username"
+                  placeholder="Enter your Email ID"
                   onChange={(e) => setuserName(e.target.value)}
                   required
                 />
@@ -110,18 +110,18 @@ const RegisterPage = () => {
                   type="password"
                   name="password"
                   // value={password}
-                  placeholder="enter your password"
+                  placeholder="Enter your password"
                   onChange={(e) => setPassword(e.target.value)}
                   required
                 />
               </div>
               <div className="form-item-login">
-                <label className="block-login">Retype Password</label>
+                <label className="block-login">Re-type Password</label>
                 <input
                   type="password"
                   name="checkpassword"
                   // value={password}
-                  placeholder="re-enter your password"
+                  placeholder="Re-enter your password"
                   onChange={(e) => setRepassword(e.target.value)}
                   required
                 />

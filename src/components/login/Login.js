@@ -52,12 +52,12 @@ const Login = () => {
           <div className="content-login">
             <form className="box-login" onSubmit={handleSubmit}>
               <div className="form-item-login">
-                <label className="block-login">Username</label>
+                <label className="block-login">Email ID</label>
                 <input
                   type="email"
                   name="email"
                   id="email"
-                  placeholder="Enter your username"
+                  placeholder="Enter your Email ID"
                   onChange={(e) => setUsername(e.target.value)}
                   required
                 />
@@ -68,7 +68,7 @@ const Login = () => {
                   type="password"
                   name="password"
                   value={password}
-                  placeholder="enter your password"
+                  placeholder="Enter your password"
                   onChange={(e) => setPassword(e.target.value)}
                   required
                 />
